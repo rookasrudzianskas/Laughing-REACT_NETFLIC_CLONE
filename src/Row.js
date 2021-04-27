@@ -6,7 +6,7 @@ const base_url = "https://image.tmdb.org/t/p/original/";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
     const [movies, setMovies] = useState([]);
-    console.log(movies)
+    // console.log(movies)
 
     // a sniper of code which runs on a specific condition
     useEffect(() => {
