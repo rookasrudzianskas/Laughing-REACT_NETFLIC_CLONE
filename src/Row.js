@@ -18,6 +18,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
         },
     };
 
+    // This is function to get all the movies
+
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(fetchUrl);
@@ -27,14 +29,22 @@ function Row({ title, fetchUrl, isLargeRow }) {
         fetchData();
     }, [fetchUrl]);
 
+    //end of the movies function
+
+    // this is click function to youtube video
+
     const handleClick = async (movie) => {
         if (trailerUrl) {
             setTrailerUrl("");
         } else {
+
+            // gets and form the url to get the video
             let trailerurl = await axios.get(
                 `/movie/${movie.id}/videos?api_key=fb34530271b349314af0de263d16ab5a`
             );
             setTrailerUrl(trailerurl.data.results[0]?.key);
+
+        //    end of the urls
         }
     };
 
