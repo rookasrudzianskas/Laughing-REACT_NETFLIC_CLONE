@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "./axios";
+import "./Row.css";
+
+const base_url = "https://image.tmdb.org/t/p/original/";
 
 const Row = ({ title, fetchUrl }) => {
     const [movies, setMovies] = useState([]);
@@ -17,16 +20,20 @@ const Row = ({ title, fetchUrl }) => {
     }, [fetchUrl])
 
     return (
-        <div>
+             // Rendering rows
+            <div className="row">
+                <h2>{title}</h2>
+                    <div className="row__posters">
+                        {/*    row__poster  */}
+                        {movies.map(movie => (
+                            // "/fdsfsdfafsddfsdfdsfsdfdfsd.jpg //
+                            <img className="row__poster" src={`${base_url}${movie.poster_path}`} alt={movie.name} />
+                        ))}
 
-            {/* Rendering rows */}
 
-            <h2>{title}</h2>
+                </div>
+            </div>
 
-
-
-        {/*    container -? posters     */}
-        </div>
     )
 }
 
