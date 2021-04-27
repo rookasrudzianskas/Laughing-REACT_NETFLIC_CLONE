@@ -1,9 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "./axios";
 
-const Row = ({ title }) => {
+const Row = ({ title, fetchUrl }) => {
     const [movies, setMovies] = useState([]);
 
-
+    // a sniper of code which runs on a specific condition
+    useEffect(() => {
+        // if [], run once when the row loads, and do not run again
+        async function fetchData() {
+            const request = await axios.get(fetchUrl);
+            console.log('🎥' + request);
+            return request;
+            // https://api.themoviedb.org/3 + 🔝
+        }
+        fetchData();
+    }, [])
 
     return (
         <div>
