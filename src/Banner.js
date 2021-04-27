@@ -65,6 +65,8 @@ const Banner = () => {
             {/*    end of movie description */}
             </div>
 
+            <div className="banner--fadeBottom" />
+
         </header>
     )
 }
