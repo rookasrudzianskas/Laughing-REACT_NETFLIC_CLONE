@@ -7,6 +7,8 @@ import "./Banner.css";
 const Banner = () => {
     const [movie, setMovie] = useState([]);
 
+    // run to fetch the data from api, and store in request, then setMovie state to the random movie from fetched movies
+
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(requests.fetchNetflixOriginals);
@@ -48,7 +50,11 @@ const Banner = () => {
                 </div>
             {/*     End of film name on the banner  */}
 
+                {/* movie description */}
+
                 <h1 className="banner__description">{movie?.overview}</h1>
+
+            {/*    end of movie description */}
             </div>
 
         </header>
