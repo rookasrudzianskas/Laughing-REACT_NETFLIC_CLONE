@@ -9,12 +9,12 @@ const Row = ({ title, fetchUrl }) => {
         // if [], run once when the row loads, and do not run again
         async function fetchData() {
             const request = await axios.get(fetchUrl);
-            console.log('🎥' + request);
+            setMovies(request.data.results);
             return request;
             // https://api.themoviedb.org/3 + 🔝
         }
         fetchData();
-    }, [])
+    }, [fetchUrl])
 
     return (
         <div>
