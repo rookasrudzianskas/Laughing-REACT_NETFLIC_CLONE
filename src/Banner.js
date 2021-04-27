@@ -21,6 +21,14 @@ const Banner = () => {
         fetchData()
     }, []);
 
+    // truncate the description
+
+    const truncate = (str, n) => {
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+    };
+
+    // end of truncate function
+
     return (
 
         // Header Image background
@@ -40,7 +48,7 @@ const Banner = () => {
 
                 {/* Film name on the banner */}
 
-                <h1>
+                <h1 className="banner__title">
                     {movie?.title || movie?.name || movie?.original_name}
                 </h1>
                 
@@ -52,7 +60,7 @@ const Banner = () => {
 
                 {/* movie description */}
 
-                <h1 className="banner__description">{movie?.overview}</h1>
+                <h1 className="banner__description">{truncate(movie?.overview, 150)}</h1>
 
             {/*    end of movie description */}
             </div>
